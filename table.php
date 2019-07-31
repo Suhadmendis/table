@@ -65,9 +65,7 @@ session_start();
 
          
 
-                <div id="itemdetails" >
-
-                </div>
+               
 
             </div>
         </form>
@@ -77,7 +75,7 @@ session_start();
 <br>
 <br>
 
-<script src="js/category.js"></script>
+<script src="E_js/table.js"></script>
 
 <script>newent();</script>
 

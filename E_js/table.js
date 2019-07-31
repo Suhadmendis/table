@@ -34,7 +34,7 @@ function lost_focus(key) {
 
 function newent() {
 
-    document.getElementById("").value = "";
+    // document.getElementById("").value = "";
     
     getdt();
 
@@ -48,7 +48,7 @@ function getdt() {
         return;
     }
 
-    var url = "category_data.php";
+    var url = "table_data.php";
     url = url + "?Command=" + "getdt";
     url = url + "&ls=" + "new";
 
@@ -63,8 +63,8 @@ function get_dt() {
     if (xmlHttp.readyState == 4 || xmlHttp.readyState == "complete")
     {
         
-        XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("");
-        document.getElementById("").value = XMLAddress1[0].childNodes[0].nodeValue;
+        XMLAddress1 = xmlHttp.responseXML.getElementsByTagName("id");
+        document.getElementById("Category_ID").value = XMLAddress1[0].childNodes[0].nodeValue;
 
     }
 }
@@ -80,7 +80,7 @@ function save_inv() {
         return;
     }
 
-    var url = ".php";
+    var url = "table_data.php";
     url = url + "?Command=" + "save_content";
     url = url + "&Category_ID=" + document.getElementById("").value;
    

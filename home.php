@@ -47,6 +47,10 @@ if (isset($_GET['url'])) {
     if ($_GET['url'] == "create") {
         include_once './create.php';
     }
+
+    if ($_GET['url'] == "table") {
+        include_once './table.php';
+    }
     
     
     
