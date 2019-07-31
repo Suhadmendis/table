@@ -89,10 +89,10 @@ function get_title($url) {
         <!-- Ionicons -->
         <!--<link rel="stylesheet" href="css/ionicons/css/ionicons.min.css">-->
         <!-- Morris chart -->
-        <link rel="stylesheet" href="plugins/morris/morris.css">
+        <!-- <link rel="stylesheet" href="plugins/morris/morris.css"> -->
 
         <!-- Date Picker -->
-        <link rel="stylesheet" href="plugins/datepicker/datepicker3.css">
+        <!-- <link rel="stylesheet" href="plugins/datepicker/datepicker3.css"> -->
 
 
         <style>
