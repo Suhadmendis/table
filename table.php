@@ -1,7 +1,13 @@
 <?php
 session_start();
 ?>
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
 
+<script src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+<script src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
 <section class="content">
 
     <div class="box box-primary">
@@ -22,6 +28,9 @@ session_start();
                     <a onclick="newent();" class="btn btn-default btn-sm">
                         <span class="fa fa-user-plus"></span> &nbsp; NEW
                     </a>
+                    <a id="addRow" class="btn btn-default btn-sm">
+                        <span class="fa fa-user-plus"></span> &nbsp; NEW
+                    </a>
 
                     <a  onclick="save_inv();" class="btn btn-success btn-sm">
                         <span class="fa fa-save"></span> &nbsp; SAVE
@@ -29,6 +38,7 @@ session_start();
                      <a onclick="NewWindow('search_category.php?stname=code', 'mywin', '800', '700', 'yes', 'center');" class="btn btn-info btn-sm">
                         <span class="glyphicon glyphicon-search"></span> &nbsp; FIND
                     </a>
+
 
                        
                     <a onclick="deleteproduct();" class="btn btn-danger btn-sm">
@@ -58,11 +68,38 @@ session_start();
                         <input type="text" placeholder="Category" name="c_code" id="Category" class="form-control  input-sm">
                     </div>
                 </div>
-                
+                <br><br>
              
-
+            <div id="table_plat">
                 
+            
+                <table id="example" class="display" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>Column 1</th>
+                            <th>Column 2</th>
+                            <th>Column 3</th>
+                            <th>Column 4</th>
+                            <th>Column 5</th>
+                        </tr>
+                    </thead>
+                   
+                    <tfoot>
+                        <tr>
+                            <th>Column 1</th>
+                            <th>Column 2</th>
+                            <th>Column 3</th>
+                            <th>Column 4</th>
+                            <th>Column 5</th>
+                        </tr>
+                    </tfoot>
+                </table>
 
+
+
+            </div>
+                
+        
          
 
                
@@ -72,8 +109,53 @@ session_start();
     </div>
 
 </section>
-<br>
-<br>
+
+
+<script>
+    $(document).ready(function() {
+    var t = $('#example').DataTable({
+        dom: 'Bfrtip',
+        buttons: [
+            {
+                text: 'JSON',
+                action: function ( e, dt, button, config ) {
+                    var data = dt.buttons.exportData();
+                    console.log(JSON.stringify( data ));
+                    $.fn.dataTable.fileSave(
+                        new Blob( [ JSON.stringify( data ) ] ),
+                        'Export.json'
+                    );
+                }
+            }
+        ]
+    });
+    var counter = 1;
+ 
+    $('#addRow').on( 'click', function () {
+       var rowNode = t
+    .row.add( [ 'Fiona White', 32, 'Edinburgh', 'Edinburgh', 'Edinburgh' ] )
+    .draw()
+    .node();
+    $( rowNode ).find('td:eq(0)').attr('contenteditable', 'true');
+    $( rowNode ).find('td:eq(1)').attr('contenteditable', 'true');
+    $( rowNode ).find('td:eq(2)').attr('contenteditable', 'true');
+    $( rowNode ).find('td:eq(3)').attr('contenteditable', 'true');
+    $( rowNode ).find('td:eq(4)').attr('contenteditable', 'true');
+ 
+$( rowNode )
+    .attr("id","500");
+    
+    } );
+
+
+ 
+    // Automatically add a first row of data
+    $('#addRow').click();
+
+   
+} );
+</script>
+
 
 <script src="E_js/table.js"></script>
 

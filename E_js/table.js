@@ -82,12 +82,29 @@ function save_inv() {
 
     var url = "table_data.php";
     url = url + "?Command=" + "save_content";
-    url = url + "&Category_ID=" + document.getElementById("").value;
-   
+    // url = url + "&Category_ID=" + document.getElementById("").value;
 
-    xmlHttp.onreadystatechange = save;
-    xmlHttp.open("GET", url, true);
-    xmlHttp.send(null);
+
+//  var t = $('#example').DataTable();
+// t.destroy();
+
+//     t = $('#example').DataTable({
+        
+//         buttons: [
+//             {
+//                 text: 'JSON',
+//                 action: function ( e, dt, button, config ) {
+//                     var data = dt.buttons.exportData();
+//                     console.log(JSON.stringify( data ));
+                   
+//                 }
+//             }
+//         ]
+//     });
+
+    // xmlHttp.onreadystatechange = save;
+    // xmlHttp.open("GET", url, true);
+    // xmlHttp.send(null);
 }
 
 
